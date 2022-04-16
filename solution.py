@@ -49,7 +49,7 @@ def receiveOnePing(mySocket, ID, timeout, destAddr):
         # Fill in start
 
         icmpHeader = recPacket[20:28]
-        type, code, checksum, packetID, sequence = struct.unpack("bbHHh", icmpHeader)
+        type, code, checksum, packetID, revid, sequence = struct.unpack("bbHHh", icmpHeader)
         if ID == revId:
             bytesInDouble = struct.calcsize('d')
             # struct.calcsize(fmt) Return the size of the struct (and hence of the string) corresponding to the given format.
